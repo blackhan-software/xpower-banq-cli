@@ -1,0 +1,42 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/assert@^1.0.12": "1.0.12",
+    "jsr:@std/cli@^1.0.15": "1.0.15",
+    "jsr:@std/dotenv@~0.225.3": "0.225.3",
+    "jsr:@std/internal@^1.0.6": "1.0.6"
+  },
+  "jsr": {
+    "@std/assert@1.0.12": {
+      "integrity": "08009f0926dda9cbd8bef3a35d3b6a4b964b0ab5c3e140a4e0351fbf34af5b9a",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/cli@1.0.15": {
+      "integrity": "e79ba3272ec710ca44d8342a7688e6288b0b88802703f3264184b52893d5e93f"
+    },
+    "@std/dotenv@0.225.3": {
+      "integrity": "a95e5b812c27b0854c52acbae215856d9cce9d4bbf774d938c51d212711e8d4a"
+    },
+    "@std/internal@1.0.6": {
+      "integrity": "9533b128f230f73bd209408bb07a4b12f8d4255ab2a4d22a1fd6d87304aca9a4"
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@^1.0.12",
+      "jsr:@std/cli@^1.0.15",
+      "jsr:@std/dotenv@~0.225.3"
+    ],
+    "packageJson": {
+      "dependencies": [
+        "npm:@blackhan-software/wasm-miner@^1.0.15",
+        "npm:@ledgerhq/hw-app-eth@^6.45.3",
+        "npm:@ledgerhq/hw-transport-node-hid@^6.29.5",
+        "npm:decimal.js@^10.5.0",
+        "npm:ethers@^6.14.0"
+      ]
+    }
+  }
+}
