@@ -1,0 +1,46 @@
+{
+  "fmt": {
+    "exclude": [
+      "*.md"
+    ]
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.14",
+    "@std/cli": "jsr:@std/cli@^1.0.22",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5"
+  },
+  "tasks": {
+    "build-banq-mswin-x86_64-mainnet": "deno compile --allow-env --env=.env.mainnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-mainnet.x86_64-mswin.exe --target x86_64-pc-windows-msvc cli/banq/banq-main.ts",
+    "build-banq-mswin-x64-mainnet": "deno run build-banq-mswin-x86_64-mainnet",
+    "build-banq-mswin-x86_64-testnet": "deno compile --allow-env --env=.env.testnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-testnet.x86_64-mswin.exe --target x86_64-pc-windows-msvc cli/banq/banq-main.ts",
+    "build-banq-mswin-x64-testnet": "deno run build-banq-mswin-x86_64-testnet",
+    "build-banq-macos-aarch64-mainnet": "deno compile --allow-env --env=.env.mainnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-mainnet.aarch64-macos.run --target aarch64-apple-darwin cli/banq/banq-main.ts",
+    "build-banq-macos-arm64-mainnet": "deno run build-banq-macos-aarch64-mainnet",
+    "build-banq-macos-aarch64-testnet": "deno compile --allow-env --env=.env.testnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-testnet.aarch64-macos.run --target aarch64-apple-darwin cli/banq/banq-main.ts",
+    "build-banq-macos-arm64-testnet": "deno run build-banq-macos-aarch64-testnet",
+    "build-banq-macos-x86_64-mainnet": "deno compile --allow-env --env=.env.mainnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-mainnet.x86_64-macos.run --target x86_64-apple-darwin cli/banq/banq-main.ts",
+    "build-banq-macos-x64-mainnet": "deno run build-banq-macos-x86_64-mainnet",
+    "build-banq-macos-x86_64-testnet": "deno compile --allow-env --env=.env.testnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-testnet.x86_64-macos.run --target x86_64-apple-darwin cli/banq/banq-main.ts",
+    "build-banq-macos-x64-testnet": "deno run build-banq-macos-x86_64-testnet",
+    "build-banq-linux-aarch64-mainnet": "deno compile --allow-env --env=.env.mainnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-mainnet.aarch64-linux.run --target aarch64-unknown-linux-gnu cli/banq/banq-main.ts",
+    "build-banq-linux-arm64-mainnet": "deno run build-banq-linux-aarch64-mainnet",
+    "build-banq-linux-aarch64-testnet": "deno compile --allow-env --env=.env.testnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-testnet.aarch64-linux.run --target aarch64-unknown-linux-gnu cli/banq/banq-main.ts",
+    "build-banq-linux-arm64-testnet": "deno run build-banq-linux-aarch64-testnet",
+    "build-banq-linux-x86_64-mainnet": "deno compile --allow-env --env=.env.mainnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-mainnet.x86_64-linux.run --target x86_64-unknown-linux-gnu cli/banq/banq-main.ts",
+    "build-banq-linux-x64-mainnet": "deno run build-banq-linux-x86_64-mainnet",
+    "build-banq-linux-x86_64-testnet": "deno compile --allow-env --env=.env.testnet --allow-ffi --allow-net --allow-read --allow-sys --output dist/banq-testnet.x86_64-linux.run --target x86_64-unknown-linux-gnu cli/banq/banq-main.ts",
+    "build-banq-linux-x64-testnet": "deno run build-banq-linux-x86_64-testnet",
+    "build-banq": "deno run -A ./build-banq.ts --network=mainnet",
+    "build-calc-macos-x86_64": "deno compile --output dist/calc.x86_64-macos.run --target x86_64-apple-darwin cli/calc/calc-main.ts",
+    "build-calc-macos-x64": "deno run build-calc-macos-x86_64",
+    "build-calc-mswin-x86_64": "deno compile --output dist/calc.x86_64-mswin.exe --target x86_64-pc-windows-msvc cli/calc/calc-main.ts",
+    "build-calc-mswin-x64": "deno run build-calc-mswin-x86_64",
+    "build-calc-linux-x86_64": "deno compile --output dist/calc.x86_64-linux.run --target x86_64-unknown-linux-gnu cli/calc/calc-main.ts",
+    "build-calc-linux-x64": "deno run build-calc-linux-x86_64",
+    "build-calc": "deno run -A ./build-calc.ts",
+    "clean": "rm -rf dist"
+  },
+  "exports": "./cli/banq/banq-main.ts",
+  "name": "@blackhan/xpower-banq-cli",
+  "version": "1.0.0"
+}
