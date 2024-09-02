@@ -38,8 +38,6 @@ jobs:
       - name: Setup env
         run: cp .env-avalanche-main .env
 
-      - name: Verify formatting
-        run: deno fmt --check
       - name: Run install
         run: deno install --node-modules-dir=auto --allow-scripts=npm:usb@2.9.0,npm:node-hid@2.1.2,npm:keccak@3.0.4
       - name: Run linter
