@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "presentation": {
+        "clear": false,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "label": "Run Deno Format All",
+      "type": "shell",
+      "command": "deno fmt"
+    },
+    {
+      "presentation": {
+        "clear": false,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "label": "Run Deno Format",
+      "type": "shell",
+      "command": "deno fmt ${relativeFile}"
+    },
+    {
+      "presentation": {
+        "clear": false,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "always",
+        "showReuseMessage": false
+      },
+      "label": "Run Deno Lint All",
+      "type": "shell",
+      "command": "deno lint"
+    },
+    {
+      "presentation": {
+        "clear": false,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "always",
+        "showReuseMessage": false
+      },
+      "label": "Run Deno Lint",
+      "type": "shell",
+      "command": "deno lint ${relativeFile}"
+    },
+    {
+      "presentation": {
+        "clear": false,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "always",
+        "showReuseMessage": false
+      },
+      "label": "Run Deno Test All",
+      "type": "shell",
+      "command": "deno test -A",
+      "problemMatcher": []
+    },
+    {
+      "presentation": {
+        "clear": false,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "always",
+        "showReuseMessage": false
+      },
+      "label": "Run Deno Test",
+      "type": "shell",
+      "command": "deno test -A ${relativeFile}"
+    }
+  ]
+}
