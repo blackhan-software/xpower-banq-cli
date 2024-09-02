@@ -1,0 +1,33 @@
+{
+  "author": {
+    "email": "development@blackhan.com",
+    "name": "Blackhan Software Ltd",
+    "url": "https://github.com/blackhan-software"
+  },
+  "bugs": {
+    "url": "https://github.com/blackhan-software/xpower-banq-cli/issues"
+  },
+  "dependencies": {
+    "@blackhan-software/wasm-miner": "^1.0.15",
+    "@ledgerhq/hw-app-eth": "^7.4.0",
+    "@ledgerhq/hw-transport-node-hid": "^6.30.0",
+    "decimal.js": "^10.6.0",
+    "ethers": "^6.16.0"
+  },
+  "license": "GPL-3.0",
+  "name": "@blackhan/xpower-banq-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackhan-software/xpower-banq-cli"
+  },
+  "scripts": {
+    "install": "deno install --node-modules-dir=auto --allow-scripts=npm:usb@2.9.0,npm:node-hid@2.1.2,npm:keccak@3.0.4",
+    "banq": "deno run -A --env=./etc/banq/banq.env.mainnet --env=.env.mainnet --env=.env.mainnet.local ./cli/banq/banq-main.ts",
+    "calc": "deno run -A ./cli/calc/calc-main.ts",
+    "postinstall": "./npm/postinstall.sh",
+    "postuninstall": "./npm/postuninstall.sh",
+    "test": "deno test -A --env=./etc/banq/banq.env.testnet --env=.env.testnet --env=.env.testnet.local",
+    "lint": "deno lint"
+  },
+  "version": "0.0.0"
+}
