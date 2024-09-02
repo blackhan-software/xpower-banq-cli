@@ -1,0 +1,31 @@
+name: Test Main
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+      - name: Setup deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.*
+
+      - name: Verify formatting
+        run: deno fmt --check
+      - name: Run install
+        run: deno install --node-modules-dir=auto --allow-scripts=npm:usb@2.9.0,npm:node-hid@2.1.2,npm:keccak@3.0.4
+      - name: Run linter
+        run: deno lint
+      - name: Run tests
+        run: deno test -A --env=./etc/banq/banq.env.testnet --env=.env.testnet
