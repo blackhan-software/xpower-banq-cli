@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2015
+###############################################################################
+NPM_SCRIPT=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
+###############################################################################
+
+# if [ -n "$(command -v pkg-config)" ] ; then
+#     TARGET="$(pkg-config --variable=completionsdir bash-completion)" ;
+#     SOURCE="$NPM_SCRIPT/../banq-completion.bash" ;
+#     if [ -d "$TARGET" ] ; then
+#         cp "$SOURCE" "$TARGET/banq" 2>/dev/null || true ;
+#     fi
+# fi
+
+###############################################################################
+# bash-completion
+
+TGT_FILE="$HOME/.bash_completion"
+TMP_FILE="/tmp/.bash_completion-$RANDOM"
+
+if [ -f "$TGT_FILE" ]; then
+    grep -v banq <"$TGT_FILE" >"$TMP_FILE" 2>/dev/null || true
+    [ -f "$TMP_FILE" ] && mv "$TMP_FILE" "$TGT_FILE" 2>/dev/null || true
+fi
+
+SRC_PATH=$(cd "$NPM_SCRIPT/.." >/dev/null 2>&1 && pwd)
+SRC_FILE="$SRC_PATH/banq-completion.bash"
+echo "source \"$SRC_FILE\"" >>"$TGT_FILE" 2>/dev/null || true
+
+###############################################################################
+# zsh-completion
+
+TGT_PATH="/usr/local/share/zsh/site-functions"
+TGT_FILE="$TGT_PATH/_banq"
+
+if [ -d "$TGT_PATH" ]; then
+    ln -sf "$SRC_FILE" "$TGT_FILE" 2>/dev/null || true
+fi
+
+###############################################################################
+# deno-compat: @ledgerhq/* ESM fix (see postinstall.py)
+
+LEDGER_DIR="$NPM_SCRIPT/../node_modules/@ledgerhq"
+if [ -d "$LEDGER_DIR" ] && command -v python3 >/dev/null 2>&1; then
+    python3 "$NPM_SCRIPT/postinstall.py" \
+        "$LEDGER_DIR"/*/package.json 2>/dev/null || true
+fi
+
+###############################################################################
+###############################################################################
