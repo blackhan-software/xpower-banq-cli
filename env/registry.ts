@@ -60,7 +60,7 @@ export function discover(
  *
  * Chunked scanners (reindex/track/retwap) only need the single pool backing
  * their token or oracle, so enumerating all `P*_ADDRESS_{run}` keys is wasted
- * RPC. This variant resolves just `names` (e.g. `["P007"]`), keyed separately
+ * RPC. This variant resolves just `names` (e.g. `["P006"]`), keyed separately
  * in the memo so it never shadows the full registry.
  *
  * @throws {ArgumentError} if `names` is empty.

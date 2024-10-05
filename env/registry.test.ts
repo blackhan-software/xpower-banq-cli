@@ -140,26 +140,26 @@ function setup(
   cfg: MockConfig,
 ): MockProvider {
   cfg.pools.forEach((pool, i) => {
-    const v10c = `${pool_name(i)}_ADDRESS_v10c`;
     const v11a = `${pool_name(i)}_ADDRESS_v11a`;
-    save_env(v10c);
+    const v11b = `${pool_name(i)}_ADDRESS_v11b`;
     save_env(v11a);
-    Deno.env.set(v10c, pool.address);
+    save_env(v11b);
     Deno.env.set(v11a, pool.address);
+    Deno.env.set(v11b, pool.address);
   });
   const caps = random();
-  save_env("CAPS_ADDRESS_v10c");
-  Deno.env.set("CAPS_ADDRESS_v10c", caps);
+  save_env("CAPS_ADDRESS_v11a");
+  Deno.env.set("CAPS_ADDRESS_v11a", caps);
   cache_clear();
   discover_clear();
   return new MockProvider(cfg);
 }
 function teardown(cfg: MockConfig): void {
   cfg.pools.forEach((_, i) => {
-    restore_env(`${pool_name(i)}_ADDRESS_v10c`);
     restore_env(`${pool_name(i)}_ADDRESS_v11a`);
+    restore_env(`${pool_name(i)}_ADDRESS_v11b`);
   });
-  restore_env("CAPS_ADDRESS_v10c");
+  restore_env("CAPS_ADDRESS_v11a");
   cache_clear();
   discover_clear();
   set_registry_reverse(new Map());
@@ -193,7 +193,7 @@ Deno.test(
     const cfg = default_cfg();
     const provider = setup(cfg);
     try {
-      const reg = await discover(provider, "v10c");
+      const reg = await discover(provider, "v11a");
       const pool = cfg.pools[0];
       assertEquals(reg.tokens.get("AVAX"), BigInt(pool.tokens[0]));
       assertEquals(reg.tokens.get("APOW"), BigInt(pool.tokens[1]));
@@ -219,10 +219,10 @@ Deno.test("registry: memoizes by (chainId, run)", ENV_OPTS, async () => {
   const cfg = default_cfg();
   const provider = setup(cfg);
   try {
-    const first = await discover(provider, "v10c");
-    const second = await discover(new MockProvider(cfg), "v10c");
+    const first = await discover(provider, "v11a");
+    const second = await discover(new MockProvider(cfg), "v11a");
     assertEquals(second, first);
-    const other_run = await discover(new MockProvider(cfg), "v11a");
+    const other_run = await discover(new MockProvider(cfg), "v11b");
     assertEquals(other_run === first, false);
   } finally {
     teardown(cfg);
@@ -236,12 +236,12 @@ Deno.test(
     const cfg = default_cfg();
     const provider = setup(cfg);
     const caps_override = random();
-    Deno.env.set("P007_CAPS_ADDRESS_v11a", caps_override);
+    Deno.env.set("P001_CAPS_ADDRESS_v11a", caps_override);
     try {
       const reg = await discover(provider, "v11a");
       assertEquals(reg.byAddress.get(BigInt(caps_override)), "CAPS");
     } finally {
-      Deno.env.delete("P007_CAPS_ADDRESS_v11a");
+      Deno.env.delete("P001_CAPS_ADDRESS_v11a");
       teardown(cfg);
     }
   },
@@ -254,7 +254,7 @@ Deno.test(
     const cfg = default_cfg();
     const provider = setup(cfg);
     try {
-      const reg = await discover(provider, "v10c");
+      const reg = await discover(provider, "v11a");
       const pool = cfg.pools[0];
       assertEquals(resolve_token("AVAX", reg), BigInt(pool.tokens[0]));
       await assertRejects(
@@ -273,18 +273,18 @@ Deno.test("registry: throws when no pool resolves", ENV_OPTS, async () => {
   const provider = setup(cfg);
   try {
     Deno.env.set(
-      "P000_ADDRESS_v10c",
+      "P000_ADDRESS_v11a",
       "0x0000000000000000000000000000000000000000",
     );
     cache_clear();
     await assertRejects(
-      () => discover(provider, "v10c"),
+      () => discover(provider, "v11a"),
       Error,
       "no pool resolved",
     );
     // the underlying per-pool failure must be surfaced, not swallowed
     await assertRejects(
-      () => discover(provider, "v10c"),
+      () => discover(provider, "v11a"),
       Error,
       "unhandled call",
     );
@@ -311,14 +311,14 @@ Deno.test(
     });
     const provider = setup(cfg);
     try {
-      const scoped = await discover_pools(provider, "v10c", ["P001"]);
+      const scoped = await discover_pools(provider, "v11a", ["P001"]);
       assertEquals(scoped.pools.has("P000"), false);
       assertEquals(scoped.pools.get("P001"), BigInt(pool2));
       assertEquals(scoped.oracles.has("T000"), false);
       assertEquals(scoped.oracles.get("T001"), BigInt(oracle2));
       assertEquals(scoped.tokens.get("USDC"), BigInt(token2));
       // full discovery still finds both
-      const full = await discover(provider, "v10c");
+      const full = await discover(provider, "v11a");
       assertEquals(full.pools.get("P000"), BigInt(cfg.pools[0].address));
       assertEquals(full.pools.get("P001"), BigInt(pool2));
     } finally {
@@ -345,7 +345,7 @@ Deno.test(
     });
     const provider = setup(cfg);
     try {
-      const reg = await discover(provider, "v10c");
+      const reg = await discover(provider, "v11a");
       assertEquals(reg.pools.get("P000"), BigInt(cfg.pools[0].address));
       assertEquals(reg.pools.get("P001"), BigInt(pool2));
       assertEquals(reg.oracles.get("T000"), BigInt(cfg.pools[0].oracle));
@@ -399,7 +399,7 @@ Deno.test(
     cfg.pools[0].tokens.push(usdt_addr);
     const provider = setup(cfg);
     try {
-      const reg = await discover(provider, "v10c");
+      const reg = await discover(provider, "v11a");
       assertEquals(reg.tokens.get("USDT"), BigInt(usdt_addr));
       assertEquals(reg.tokens.has("USDt"), false);
       assertEquals(reg.byAddress.get(BigInt(usdt_addr)), "USDT");
@@ -419,7 +419,7 @@ Deno.test(
     cfg.pools[0].tokens.push(wbtc_addr);
     const provider = setup(cfg);
     try {
-      const reg = await discover(provider, "v10c");
+      const reg = await discover(provider, "v11a");
       assertEquals(reg.tokens.get("WBTC"), BigInt(wbtc_addr));
       assertEquals(reg.byAddress.get(BigInt(wbtc_addr)), "WBTC");
     } finally {
