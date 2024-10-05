@@ -26,5 +26,6 @@
     "postinstall": "./npm/postinstall.sh",
     "postuninstall": "./npm/postuninstall.sh",
     "test": "deno test -A"
-  }
+  },
+  "version": "0.1.20"
 }
