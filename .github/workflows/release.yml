@@ -45,7 +45,7 @@ jobs:
       - name: Run linter
         run: deno lint
       - name: Run tests
-        run: deno test -A
+        run: deno test -A --env=.env
 
       - name: Build mainnet artifact(s)
         run: deno run build-banq-${{ matrix.platform }}-${{ matrix.arch }}-mainnet
