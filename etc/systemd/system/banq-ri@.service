@@ -1,0 +1,13 @@
+# /etc/systemd/system/banq-ri@.service
+[Unit]
+Description=Run banq reindex %I -YP
+
+[Service]
+ExecStart=/usr/bin/env bash -c 'IFS="_:"; read T M P <<< "%I"; /usr/local/bin/banq reindex "$T" --mode="$M" --pool="$P" -YP'
+EnvironmentFile=/etc/banq/banq.env.mainnet
+ExecStartPre=/bin/sleep 2
+StandardOutput=journal
+StandardError=journal
+MemoryMax=500M
+CPUQuota=50%
+Type=oneshot

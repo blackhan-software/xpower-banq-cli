@@ -1,0 +1,13 @@
+# /etc/systemd/system/banq-rt@.service
+[Unit]
+Description=Run banq retwap %I -YP
+
+[Service]
+ExecStart=/usr/bin/env bash -c 'IFS="_:"; read T0 T1 O <<< "%I"; /usr/local/bin/banq retwap "$T0" "$T1" --oracle="$O" -YP'
+EnvironmentFile=/etc/banq/banq.env.mainnet
+ExecStartPre=/bin/sleep 2
+StandardOutput=journal
+StandardError=journal
+MemoryMax=500M
+CPUQuota=50%
+Type=oneshot

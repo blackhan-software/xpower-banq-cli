@@ -1,0 +1,12 @@
+# /etc/systemd/system/banq-ri.timer
+[Unit]
+Description=Timer for banq-ri.service (daily twice at :30)
+After=network.target
+
+[Timer]
+OnCalendar=06:30,18:30
+RandomizedDelaySec=60s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

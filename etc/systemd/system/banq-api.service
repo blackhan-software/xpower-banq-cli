@@ -1,0 +1,24 @@
+# /etc/systemd/system/banq-api.service
+[Unit]
+Description=Run xpowerbanq/banq-api
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+StartLimitBurst=3
+RestartSec=10
+
+ExecStartPre=-/usr/bin/docker rm -f banq-api
+ExecStop=/usr/bin/docker stop -t 5 banq-api
+ExecStart=/usr/bin/docker run --name banq-api \
+  --cpus=0.5 --memory=500m --memory-swap=500m \
+  -v /var/lib/banq:/var/lib/banq:ro \
+  -v /srv/db:/srv/db:ro \
+  -p 127.0.0.1:8001:8001 \
+  xpowerbanq/banq-api
+
+[Install]
+WantedBy=multi-user.target

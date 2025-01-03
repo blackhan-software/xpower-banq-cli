@@ -1,0 +1,18 @@
+# /etc/systemd/system/banq-riw@.service
+[Unit]
+Description=Run banq reindex %I -YP --watch=86400 | riw2db
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/env bash -c 'IFS="_:" read -r T M P <<< "%I"; exec /usr/local/bin/banq reindex "$T" --mode="$M" --pool="$P" -YP --watch=86400 | /usr/local/bin/banq-riw2db.sh /var/lib/banq/ri-%I.db'
+EnvironmentFile=/etc/banq/banq.env.mainnet
+StandardOutput=journal
+StandardError=journal
+StateDirectory=banq
+Restart=on-failure
+MemoryMax=500M
+RestartSec=10
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+# /etc/systemd/system/banq-rtw.timer
+[Unit]
+Description=Timer for banq-rtw.service (daily twice at :15)
+After=network.target
+
+[Timer]
+OnCalendar=06:15,18:15
+RandomizedDelaySec=60s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

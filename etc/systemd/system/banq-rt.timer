@@ -1,0 +1,12 @@
+# /etc/systemd/system/banq-rt.timer
+[Unit]
+Description=Timer for banq-rt.service (hourly at :00)
+After=network.target
+
+[Timer]
+OnCalendar=*:00
+RandomizedDelaySec=60s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

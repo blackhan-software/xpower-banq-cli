@@ -1,0 +1,11 @@
+# /etc/systemd/system/banq-ri.service
+[Unit]
+Description=Run banq-ri.sh
+
+[Service]
+ExecStart=/usr/local/bin/banq-ri.sh
+StandardOutput=journal
+StandardError=journal
+MemoryMax=500M
+CPUQuota=50%
+Type=oneshot

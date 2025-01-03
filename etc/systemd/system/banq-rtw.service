@@ -1,0 +1,11 @@
+# /etc/systemd/system/banq-rtw.service
+[Unit]
+Description=Run banq-rtw.sh
+
+[Service]
+ExecStart=/usr/local/bin/banq-rtw.sh
+StandardOutput=journal
+StandardError=journal
+MemoryMax=500M
+CPUQuota=50%
+Type=oneshot

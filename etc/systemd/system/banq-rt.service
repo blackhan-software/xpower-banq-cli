@@ -1,0 +1,11 @@
+# /etc/systemd/system/banq-rt.service
+[Unit]
+Description=Run banq-rt.sh
+
+[Service]
+ExecStart=/usr/local/bin/banq-rt.sh
+StandardOutput=journal
+StandardError=journal
+MemoryMax=500M
+CPUQuota=50%
+Type=oneshot

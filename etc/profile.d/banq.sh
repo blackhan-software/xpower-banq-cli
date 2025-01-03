@@ -1,0 +1,2 @@
+PROVIDER_URL=https://api.avax.network/ext/bc/C/rpc
+CONTRACT_RUN=v10a
