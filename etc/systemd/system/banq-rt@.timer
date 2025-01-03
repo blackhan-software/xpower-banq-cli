@@ -1,0 +1,10 @@
+# /etc/systemd/system/banq@.timer
+[Unit]
+Description=Timer for banq retwap %I -Y
+
+[Timer]
+OnUnitActiveSec=61min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

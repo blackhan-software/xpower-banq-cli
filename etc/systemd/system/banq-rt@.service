@@ -1,0 +1,9 @@
+# /etc/systemd/system/banq@.service
+[Unit]
+Description=Run banq retwap %I -YP
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home
+EnvironmentFile=/etc/banq/banq.env
+ExecStart=/usr/bin/env bash -c 'PAIR=$(echo %I | tr "_" " ") && banq retwap $PAIR -YP'
