@@ -1,0 +1,10 @@
+# /etc/systemd/system/banq-ri@.service
+[Unit]
+Description=Run banq reindex %I -YP
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home
+EnvironmentFile=/etc/banq/banq.env
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/bin/env bash -c 'IFS="_:"; read ARG1 ARG2 ARG3 <<< "%I"; /usr/local/bin/banq reindex "$ARG1" --mode="$ARG2" --pool="$ARG3" -YP'
