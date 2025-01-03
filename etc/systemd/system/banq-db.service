@@ -1,0 +1,20 @@
+# /etc/systemd/system/banq-db.service
+[Unit]
+Description=Run xpowerbanq/datasette
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+RestartSec=5
+
+ExecStartPre=/usr/bin/docker rm -f banq-db
+ExecStop=/usr/bin/docker stop -t 5 banq-db
+ExecStart=/usr/bin/docker run --name banq-db \
+  -v /var/lib/banq:/var/lib/banq:ro \
+  -v /srv/db:/srv/db:ro \
+  -p 127.0.0.1:8001:8001 \
+  xpowerbanq/datasette
+
+[Install]
+WantedBy=multi-user.target

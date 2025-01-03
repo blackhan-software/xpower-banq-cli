@@ -1,0 +1,13 @@
+# /etc/systemd/system/banq-riw@.service
+[Unit]
+Description=Sync banq reindex %I to database
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/banq/banq.env.mainnet
+ExecStart=/usr/bin/env bash -c 'IFS="_:" read -r T M P <<< "%I"; exec /usr/local/bin/banq reindex "$T" --mode="$M" --pool="$P" -YP --watch | /usr/local/bin/banq-riw2db.sh /var/lib/banq/logs-%I.db'
+StateDirectory=banq
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
