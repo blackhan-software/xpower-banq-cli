@@ -1,0 +1,10 @@
+# /etc/systemd/system/banq-ri@.service
+[Unit]
+Description=Run banq reindex %I -YP
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home
+EnvironmentFile=/etc/banq/banq.env.mainnet
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/bin/env bash -c 'IFS="_:"; read T M P <<< "%I"; /usr/local/bin/banq reindex "$T" --mode="$M" --pool="$P" -YP'

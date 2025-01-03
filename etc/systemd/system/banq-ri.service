@@ -1,0 +1,7 @@
+# /etc/systemd/system/banq-ri.service
+[Unit]
+Description=Run banq-ri.sh
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/banq-ri.sh
