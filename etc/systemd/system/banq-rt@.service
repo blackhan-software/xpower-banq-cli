@@ -1,0 +1,9 @@
+# /etc/systemd/system/banq-rt@.service
+[Unit]
+Description=Run banq retwap %I -YP
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home
+EnvironmentFile=/etc/banq/banq.env
+ExecStart=/usr/bin/env bash -c 'IFS="_:"; read ARG1 ARG2 ARG3 <<< "%I"; /usr/local/bin/banq retwap "$ARG1" "$ARG2" --oracle="$ARG3" -YP'
