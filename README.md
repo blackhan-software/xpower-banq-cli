@@ -188,4 +188,4 @@ deno run banq --help # including --ledger|-l support!
 
 ## Copyright
 
-© 2024 [Moorhead LLC](#)
+© 2025 [Moorhead LLC](#)
