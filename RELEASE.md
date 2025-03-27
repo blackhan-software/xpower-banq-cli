@@ -110,4 +110,4 @@ banq rates-of APOW [--pool=1] [-@|--at=all] [-Y|--broadcast]
 
 ## Copyright
 
-© 2024 [Moorhead LLC](#)
+© 2025 [Moorhead LLC](#)
