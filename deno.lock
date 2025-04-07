@@ -5,7 +5,7 @@
     "jsr:@std/cli@^1.0.15": "1.0.15",
     "jsr:@std/dotenv@~0.225.3": "0.225.3",
     "jsr:@std/internal@^1.0.6": "1.0.6",
-    "npm:@ledgerhq/hw-app-eth@^6.43.1": "6.43.1",
+    "npm:@ledgerhq/hw-app-eth@^6.44.0": "6.44.0",
     "npm:@ledgerhq/hw-transport-node-hid@^6.29.5": "6.29.5",
     "npm:decimal.js@^10.5.0": "10.5.0",
     "npm:ethers@^6.13.6": "6.13.6"
@@ -189,8 +189,8 @@
         "@ethersproject/strings"
       ]
     },
-    "@ledgerhq/cryptoassets-evm-signatures@13.5.4": {
-      "integrity": "sha512-adKCDodAoxVE0NI0lu4VPejYC9lTIIYqlfB8KB1PFgaWj1JsvIgD+OGPu3wTT+S4vjqwyKRBxALDsRgcUS9p0w==",
+    "@ledgerhq/cryptoassets-evm-signatures@13.5.5": {
+      "integrity": "sha512-HiUjke0VNz3CAcDKC9LE9CrYXzyD+bVvmu/UF1xj3ZNslMqWmdE/3HS98pJZ0Z/i6wCThjWma1FvhC0+KPHZ2A==",
       "dependencies": [
         "@ledgerhq/live-env",
         "axios"
@@ -205,8 +205,8 @@
         "semver"
       ]
     },
-    "@ledgerhq/domain-service@1.2.23_react@18.3.1": {
-      "integrity": "sha512-bXLdsVnROPrK/7YSrYlrfHX2F7k8tWM2YnISEMY0NmN5gkfUJwSd1ZflWADrsOqrXmda/k/B5cn5GT3FxArW5Q==",
+    "@ledgerhq/domain-service@1.2.24_react@18.3.1": {
+      "integrity": "sha512-+9GDtpAFz873tuMyNxgTbzHYHUFp7gSpUP7IH+5YCI0ry4GAhZ0BtUrIF8RsxNSgTq7p7RY7SmqJ7il9CZUZJQ==",
       "dependencies": [
         "@ledgerhq/errors",
         "@ledgerhq/logs",
@@ -220,8 +220,8 @@
     "@ledgerhq/errors@6.19.1": {
       "integrity": "sha512-75yK7Nnit/Gp7gdrJAz0ipp31CCgncRp+evWt6QawQEtQKYEDfGo10QywgrrBBixeRxwnMy1DP6g2oCWRf1bjw=="
     },
-    "@ledgerhq/evm-tools@1.6.0": {
-      "integrity": "sha512-g4+Zu8nxTWfvnNmeIuM2dwFu765iGbgEbGjBkdO7swHIBYLTudjKk/RFlZdjCB/lt4LGAfslGtek1CzZe9Bcnw==",
+    "@ledgerhq/evm-tools@1.6.1": {
+      "integrity": "sha512-lUeiOxsPCkZMzi/8bHboZRb8Xp+Q2/I/lO0Sy3L6J6Ej3Q9tP4WHquakhTlFvUGuSexCIEfdVbXqxlCE4JYyiQ==",
       "dependencies": [
         "@ethersproject/constants",
         "@ethersproject/hash",
@@ -231,8 +231,8 @@
         "crypto-js"
       ]
     },
-    "@ledgerhq/hw-app-eth@6.43.1": {
-      "integrity": "sha512-iPZ6tWt4YvQ9uSRu5PUzgU5xvOgBbOU/a9MjeWNwApcES2iwQ3BoAD2ecwSrRDNri7aqOj0oV77SMNIDTsGL5A==",
+    "@ledgerhq/hw-app-eth@6.44.0": {
+      "integrity": "sha512-QteTlbreh9SoFXSe5TRo49l2mtwrCN2qljDYU82cASrHjEjb+WRj+igysn4Xy2qRgmU1BuO4YoTFnjJK22rb4w==",
       "dependencies": [
         "@ethersproject/abi",
         "@ethersproject/rlp",
@@ -247,6 +247,7 @@
         "@ledgerhq/types-live",
         "axios",
         "bignumber.js",
+        "jest-sonar",
         "semver"
       ]
     },
@@ -290,8 +291,8 @@
         "events"
       ]
     },
-    "@ledgerhq/live-env@2.6.0": {
-      "integrity": "sha512-g+YSOvzgjTavd0oQooH9VzLabPyJs5X1Tgn8jG1iDKO8PBPTSLCH8V4L4bFcT73druY+jgUA0gatPDqYStR9yw==",
+    "@ledgerhq/live-env@2.7.0": {
+      "integrity": "sha512-APhnl7IGyra+9dsSHfTspUtek9JjKOdrXaXNkdBIEWVHeBonhp3QKrUYgRE86SOkvWBH/KFyvhBYPcAjVD1azg==",
       "dependencies": [
         "rxjs",
         "utility-types"
@@ -300,8 +301,8 @@
     "@ledgerhq/logs@6.12.0": {
       "integrity": "sha512-ExDoj1QV5eC6TEbMdLUMMk9cfvNKhhv5gXol4SmULRVCx/3iyCPhJ74nsb3S0Vb+/f+XujBEj3vQn5+cwS0fNA=="
     },
-    "@ledgerhq/types-live@6.64.0": {
-      "integrity": "sha512-CchdWQCZlqsZSyFFDDZr+iTQXjn3Oy9bbfWCZtcBDcoCHkSI8mgNwyytqy4rNeQLCqjNeVwT/SLXtOybjioLsQ==",
+    "@ledgerhq/types-live@6.65.0": {
+      "integrity": "sha512-nu+YkTBqzIqleF/RF4SJLQEk3bvwTzYABRShhCdkwJ9ktt773Geib6zhMn3DX7WbyjmTVA0YOfFTrlFsXjdHRQ==",
       "dependencies": [
         "bignumber.js",
         "rxjs"
@@ -328,6 +329,9 @@
     "aes-js@4.0.0-beta.5": {
       "integrity": "sha512-G965FqalsNyrPqgEGON7nIx1e/OVENSgiEIzyC63haUMuvNnwIgIjMs52hlTCKhkBny7A2ORNlfY9Zu+jmGk1Q=="
     },
+    "ansi-regex@5.0.1": {
+      "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="
+    },
     "asynckit@0.4.0": {
       "integrity": "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
     },
@@ -342,8 +346,8 @@
     "base64-js@1.5.1": {
       "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="
     },
-    "bignumber.js@9.1.2": {
-      "integrity": "sha512-2/mKyZH9K85bzOEfhXDBFZTGd1CTs+5IHpeFQo9luiBG7hghdC851Pj2WAhb6E3R6b9tZj/XKhbg4fum+Kepug=="
+    "bignumber.js@9.2.0": {
+      "integrity": "sha512-JocpCSOixzy5XFJi2ub6IMmV/G9i8Lrm2lZvwBv9xPdglmZM0ufDVBbjbrfU/zuLvBfD7Bv2eYxz9i+OHTgkew=="
     },
     "bindings@1.5.0": {
       "integrity": "sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==",
@@ -443,6 +447,9 @@
       "dependencies": [
         "once"
       ]
+    },
+    "entities@4.3.0": {
+      "integrity": "sha512-/iP1rZrSEJ0DTlPiX+jbzlA3eVkY/e8L8SozroF395fIqE3TYF/Nz7YOMAawta+vLmyJ/hkGNNPcSbMADCCXbg=="
     },
     "es-define-property@1.0.1": {
       "integrity": "sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g=="
@@ -570,6 +577,13 @@
     },
     "ini@1.3.8": {
       "integrity": "sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew=="
+    },
+    "jest-sonar@0.2.16": {
+      "integrity": "sha512-ES6Z9BbIVDELtbz+/b6pv41B2qOfp38cQpoCLqei21FtlkG/GzhyQ0M3egEIM+erpJOkpRKM8Tc8/YQtHdiTXA==",
+      "dependencies": [
+        "entities",
+        "strip-ansi"
+      ]
     },
     "js-sha3@0.8.0": {
       "integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
@@ -749,6 +763,12 @@
         "safe-buffer"
       ]
     },
+    "strip-ansi@6.0.1": {
+      "integrity": "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==",
+      "dependencies": [
+        "ansi-regex"
+      ]
+    },
     "strip-json-comments@2.0.1": {
       "integrity": "sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ=="
     },
@@ -815,7 +835,7 @@
     ],
     "packageJson": {
       "dependencies": [
-        "npm:@ledgerhq/hw-app-eth@^6.43.1",
+        "npm:@ledgerhq/hw-app-eth@^6.44.0",
         "npm:@ledgerhq/hw-transport-node-hid@^6.29.5",
         "npm:decimal.js@^10.5.0",
         "npm:ethers@^6.13.6"

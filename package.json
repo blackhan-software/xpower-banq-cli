@@ -8,7 +8,7 @@
     "url": "https://github.com/blackhan-software/xpower-banq-cli/issues"
   },
   "dependencies": {
-    "@ledgerhq/hw-app-eth": "^6.43.1",
+    "@ledgerhq/hw-app-eth": "^6.44.0",
     "@ledgerhq/hw-transport-node-hid": "^6.29.5",
     "decimal.js": "^10.5.0",
     "ethers": "^6.13.6"
