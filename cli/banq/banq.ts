@@ -15,6 +15,8 @@ import { command as settle } from "../../cmd/banq/settle-tokens.ts";
 import { command as supply } from "../../cmd/banq/supply-tokens.ts";
 import { command as health_of } from "../../cmd/banq/health-of-user.ts";
 import { command as rates_of } from "../../cmd/banq/rates-of-token.ts";
+import { command as xpow_mine } from "../../cmd/banq/xpow-mine.ts";
+import { command as xpow_init } from "../../cmd/banq/xpow-init.ts";
 import type { Command } from "./banq-types.ts";
 
 export function cli_next(args: BanqArgs): Promise<
@@ -68,6 +70,14 @@ export async function* cli_banq(args: BanqArgs): AsyncGenerator<
     }
     if (cmd === "ro" || cmd === "rates-of") {
       yield ["rates-of", ...await rates_of(args)];
+      continue;
+    }
+    if (cmd === "xi" || cmd === "xpow-init") {
+      yield ["xpow-init", ...await xpow_init(args)];
+      continue;
+    }
+    if (cmd === "xm" || cmd === "xpow-mine") {
+      yield ["xpow-mine", ...await xpow_mine(args)];
       continue;
     }
     throw new ArgumentError(`unknown command: ${cmd}`);

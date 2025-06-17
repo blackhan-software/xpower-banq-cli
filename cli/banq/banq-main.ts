@@ -33,6 +33,12 @@ if (import.meta.main) {
         "rates-of",
         "ro",
       ].join(" "));
+      console.log([
+        "xpow-init",
+        "xi",
+        "xpow-mine",
+        "xi",
+      ].join(" "));
     }
     Deno.exit(0);
   }

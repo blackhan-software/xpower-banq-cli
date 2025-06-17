@@ -21,8 +21,10 @@ const CLI_OPTIONS = {
     "percent_max": undefined as number | undefined,
     "plot": undefined as boolean | string | undefined,
     "pool": undefined as string | bigint | undefined,
+    "pow_level": undefined as number | undefined,
     "private_key": undefined as string | undefined,
     "provider_url": undefined as string | undefined,
+    "to": undefined as bigint | undefined,
   },
   boolean: [
     "list_commands",

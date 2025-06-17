@@ -8,4 +8,7 @@ export type Command =
   | "refresh"
   | "retwap"
   | "health-of"
-  | "rates-of";
+  | "rates-of"
+  | "xpow-mine"
+  | "xpow-init"
+  ;
