@@ -20,7 +20,7 @@ export function abbressOf(
   n: bigint,
   ellipsis = 4,
 ): string {
-  const address = `${n.toString(16).padStart(40, "0")}`;
+  const address = addressOf(n);
   if (ellipsis > 0) {
     const suffix = address.slice(-ellipsis);
     const prefix = address.slice(2, 2 + ellipsis);
