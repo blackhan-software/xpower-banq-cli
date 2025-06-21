@@ -1,6 +1,9 @@
 import { ethers } from "ethers";
 
 /**
+ * Converts a bigint address to a checksummed hex string;
+ * imported as `x` throughout cmd/banq/ for brevity.
+ *
  * @returns a string representation of the address
  */
 export function addressOf(
@@ -14,13 +17,16 @@ export function addressOf(
   );
 }
 /**
+ * Converts a bigint address to an abbreviated `0xABCD…1234` string;
+ * imported as `y` throughout cmd/banq/ for brevity.
+ *
  * @returns an abbreviated string representation of the address
  */
 export function abbressOf(
   n: bigint,
   ellipsis = 4,
 ): string {
-  const address = `${n.toString(16).padStart(40, "0")}`;
+  const address = addressOf(n);
   if (ellipsis > 0) {
     const suffix = address.slice(-ellipsis);
     const prefix = address.slice(2, 2 + ellipsis);
