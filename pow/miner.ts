@@ -5,23 +5,31 @@ type Options = Parameters<IHasher["reduce"]>[1];
 
 export class Miner {
   async init(
-    contract: bigint, address: bigint,
-    block_hash: bigint, nonce_length: number,
+    contract: bigint,
+    address: bigint,
+    block_hash: string,
+    nonce_length: number,
   ) {
     const hasher = await KeccakHasher();
     const array = this.abi_encode(
-      contract, address, block_hash, nonce_length
+      contract,
+      address,
+      block_hash,
+      nonce_length,
     );
     return (options: Options) => hasher.reduce(array, options);
   }
   abi_encode(
-    contract: bigint, address: bigint,
-    block_hash: bigint, nonce_length: number,
+    contract: bigint,
+    address: bigint,
+    block_hash: string,
+    nonce_length: number,
   ) {
     const template = solidityPacked(
       ["uint160", "bytes32", "bytes"],
       [
-        contract ^ address, block_hash,
+        contract ^ address,
+        block_hash,
         new Uint8Array(nonce_length),
       ],
     );
