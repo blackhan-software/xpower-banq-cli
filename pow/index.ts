@@ -2,20 +2,25 @@ import { type IHasher, KeccakHasher } from "@blackhan-software/wasm-miner";
 import { getBytes, hexlify } from "ethers";
 
 export async function pow(
-  data: string, difficulty: bigint, ctx: {
+  data: string,
+  difficulty: bigint,
+  ctx: {
     blockHash: Promise<string>;
     address: Promise<string>;
   },
 ): Promise<string> {
   const [address, blockHash, hasher] = await Promise.all([
-    ctx.address.then((a) => a.slice(2)), ctx.blockHash,
+    ctx.address.then((a) => a.slice(2)),
+    ctx.blockHash,
     KeccakHasher(),
   ]);
   const bytes = getBytes(blockHash + address + data.slice(2));
   return pow_base(hasher, Number(difficulty), bytes);
 }
 async function pow_base(
-  hasher: IHasher, zeros: number, bytes: Uint8Array,
+  hasher: IHasher,
+  zeros: number,
+  bytes: Uint8Array,
 ): Promise<string> {
   const step = BigInt(4 ** zeros);
   for (let i = 0n; true; i++) {
