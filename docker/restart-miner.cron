@@ -1,0 +1,2 @@
+0 * * * * root /usr/bin/pkill socat
+0 * * * * root /usr/bin/pkill banq
