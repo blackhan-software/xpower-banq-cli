@@ -29,5 +29,5 @@
     "test": "deno test -A --env=.env",
     "lint": "deno lint"
   },
-  "version": "0.0.0"
+  "version": "1.0.0"
 }
