@@ -109,7 +109,7 @@ export async function command(args: BanqArgs): Promise<CommandResult> {
     }
     const [info, utils, sp_info, bp_info] = await Promise.all([
       S_POS.model() as Promise<RateInfo>,
-      Utils.of(VAULT, at_index, page),
+      Utils.of(S_POS, B_POS, VAULT, at_index, page),
       Token.of(S_POS),
       Token.of(B_POS),
     ]);
