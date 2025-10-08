@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(deno check:*)",
+      "Bash(deno test:*)",
+      "Bash(deno lint:*)",
+      "Bash(npm t:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)"
+    ]
+  }
+}
