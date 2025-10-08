@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/tux/Documents/blackhan.com/banq.git/source/contract/**)",
+      "Read(//home/tux/Documents/blackhan.com/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
