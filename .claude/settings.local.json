@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/tux/Documents/blackhan.com/banq.git/source/contract/**)",
+      "Read(//home/tux/Documents/blackhan.com/**)",
+      "Bash(deno test:*)",
+      "Bash(deno lint:*)",
+      "Bash(deno fmt:*)",
+      "Bash(deno check:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(npm t:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
