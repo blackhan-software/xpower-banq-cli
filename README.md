@@ -207,28 +207,6 @@ deno fmt
 deno help
 ```
 
-## Bugs
-
-### Ledger Hardware Wallet
-
-Using the Ledger hardware wallet works _only_ from within the project, due to limited [deno] support for _native_ Node modules (like for `node-hid`, `keccak` or `usb`):
-
-```sh
-git clone https://github.com/blackhan-software/xpower-banq-cli
-```
-
-```sh
-cd xpower-banq-cli && deno run install
-```
-
-```sh
-cp .env.mainnet .env # or: cp .env.testnet .env
-```
-
-```sh
-deno run banq --help # including --ledger|-l support!
-```
-
 ## Copyright
 
 © 2025 [Moorhead LLC](#)
