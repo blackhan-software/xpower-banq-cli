@@ -6,8 +6,8 @@
     "jsr:@std/dotenv@~0.225.5": "0.225.5",
     "jsr:@std/internal@^1.0.10": "1.0.10",
     "npm:@blackhan-software/wasm-miner@^1.0.15": "1.0.15",
-    "npm:@ledgerhq/hw-app-eth@^6.46.0": "6.46.0",
-    "npm:@ledgerhq/hw-transport-node-hid@^6.29.13": "6.29.13",
+    "npm:@ledgerhq/hw-app-eth@^6.47.0": "6.47.0",
+    "npm:@ledgerhq/hw-transport-node-hid@^6.29.14": "6.29.14",
     "npm:decimal.js@^10.6.0": "10.6.0",
     "npm:ethers@^6.15.0": "6.15.0"
   },
@@ -193,15 +193,15 @@
         "@ethersproject/strings"
       ]
     },
-    "@ledgerhq/cryptoassets-evm-signatures@13.6.4": {
-      "integrity": "sha512-njO+0jrzXbXR+RFGrdI9e1iZ5rQBCbtTtIVvaUjN2i1KPaiK2VryjIFTtBh8+l9iUnCw3Bd8A0JYCmw7hFqE+Q==",
+    "@ledgerhq/cryptoassets-evm-signatures@13.7.0": {
+      "integrity": "sha512-CVwmkCJpq32nWMQARVYtWhgsynlMATE6qT4CV7rKHVvriGwKeI+gCWrF5DRiVQjn63rejgs6tOMFognrWVcLWw==",
       "dependencies": [
         "@ledgerhq/live-env",
         "axios"
       ]
     },
-    "@ledgerhq/devices@8.6.1": {
-      "integrity": "sha512-PQR2fyWz7P/wMFHY9ZLz17WgFdxC/Im0RVDcWXpp24+iRQRyxhQeX2iG4mBKUzfaAW6pOIEiWt+vmJh88QP9rQ==",
+    "@ledgerhq/devices@8.7.0": {
+      "integrity": "sha512-3pSOULPUhClk2oOxa6UnoyXW8+05FK7r6cpq2WiTey4kyIUjmIraO7AX9lhz9IU73dGVtBMdU+NCPPO2RYJaTQ==",
       "dependencies": [
         "@ledgerhq/errors",
         "@ledgerhq/logs",
@@ -209,8 +209,8 @@
         "semver"
       ]
     },
-    "@ledgerhq/domain-service@1.2.45_react@18.3.1": {
-      "integrity": "sha512-HjQe62zz5mQC5vSIOFycRwqxdeOWUdtuSp/KppBywscssCvWXiFJu0lohgaT5dDBdWQYnA5/1kgbgY2YNzbbig==",
+    "@ledgerhq/domain-service@1.4.0_react@18.3.1": {
+      "integrity": "sha512-eZaTnLwgVjPQFhvFi6JEJZxMUxJtlOjgOQaliJyGZDZXvZW/Vyduo1ZN4XGNgKIDlKKLQLM6TT4yjQJeJvOtqQ==",
       "dependencies": [
         "@ledgerhq/errors",
         "@ledgerhq/logs",
@@ -221,11 +221,11 @@
         "react-dom"
       ]
     },
-    "@ledgerhq/errors@6.26.0": {
-      "integrity": "sha512-4OlisaDBafkn7KN5emue08lCGMVREX6T+nxj47C7W30EBA/leLAEDaVvUw5/gFOWrv8Q2A9Scb8aMM3uokyt0w=="
+    "@ledgerhq/errors@6.27.0": {
+      "integrity": "sha512-EE2hATONHdNP3YWFe3rZwwpSEzI5oN+q/xTjOulnjHZo84TLjungegEJ54A/Pzld0woulkkeVA27FbW5SAO1aA=="
     },
-    "@ledgerhq/evm-tools@1.7.8": {
-      "integrity": "sha512-OBV622MCiQ0SATh58zWq0PO0CBViBGoC6V1v3PvAk6efFmWtmABHF6rxJOyjB8xmJVru/HXE/jFvORiTYLRZJQ==",
+    "@ledgerhq/evm-tools@1.8.0": {
+      "integrity": "sha512-NpaNbQZIwq0r6ARQ6IXdJgkyzDxNVP6fW1ec1w5Ade/zVQT+VcnhkmEy9BBEfK+bylfDvtv4iyJjupkNuk2Imw==",
       "dependencies": [
         "@ethersproject/constants",
         "@ethersproject/hash",
@@ -235,8 +235,8 @@
         "crypto-js"
       ]
     },
-    "@ledgerhq/hw-app-eth@6.46.0": {
-      "integrity": "sha512-9kJsm8Mzw5f8MwiMv/f98QalPkC371zjOGui7cKYRvgr9pgqkYoy+C/1UILxf4fuPVeAG79+YSgB6Qs55Thu/w==",
+    "@ledgerhq/hw-app-eth@6.47.0": {
+      "integrity": "sha512-STi7EqOKwZs/Sv1SnYNVKcja2qb0zSGsNegKXGQdxHYaGzXYijA6x9hqmJfdKOPqh8Hy+L8yPetvrmtDe7MSMA==",
       "dependencies": [
         "@ethersproject/abi",
         "@ethersproject/rlp",
@@ -254,16 +254,16 @@
         "semver"
       ]
     },
-    "@ledgerhq/hw-transport-mocker@6.29.12": {
-      "integrity": "sha512-ICFkWdVpL7FVK7qo+9CC9HU0JZamx0++AnM1Q8wMzYPRaELt7PL8Lfrs3OopKqvEIu/9AtyuQmdArhFuQ6omZg==",
+    "@ledgerhq/hw-transport-mocker@6.29.13": {
+      "integrity": "sha512-yfslV0Xg8tGsvvn0R5ulduIgXBILk0qXg/YrOx8kJyzHGSRV58CeVw2ZhsO/pAXAZJ9ojH1kzdIBo0qFH2M0AA==",
       "dependencies": [
         "@ledgerhq/hw-transport",
         "@ledgerhq/logs",
         "rxjs"
       ]
     },
-    "@ledgerhq/hw-transport-node-hid-noevents@6.30.13": {
-      "integrity": "sha512-qHRiIcwOt+VJ41x/IADmtogbBmJoGPcRBgXlqnDSV5NUOkmOF1BWYdpwE1qjab4zaBHwEUPDlL9vRarOY6gp4Q==",
+    "@ledgerhq/hw-transport-node-hid-noevents@6.30.14": {
+      "integrity": "sha512-QG5wd6kjJYYXSmGRoZkDAehX1iN9WdjgHYNW4QwWcw9G6QnAgAYLE6v1u4ZZVVLZ6DrmHKJVOzwm9njYJMit2w==",
       "dependencies": [
         "@ledgerhq/devices",
         "@ledgerhq/errors",
@@ -272,8 +272,8 @@
         "node-hid"
       ]
     },
-    "@ledgerhq/hw-transport-node-hid@6.29.13": {
-      "integrity": "sha512-pKokLu7Dww3PiKom7cBdzvx9jrMWVpNSOzatVtzLkYOvvGBX6EkmUyNRSYEdqOn+dLImoacHxev1vT/qWKURjA==",
+    "@ledgerhq/hw-transport-node-hid@6.29.14": {
+      "integrity": "sha512-SqawAnYecZz1tt2VHbhyQMhwadaKhsMjhv9gHu9MmAevLFSVCfgs+6qWmuT+kuxhD1zGneW5TxlW+4B+HcVtWg==",
       "dependencies": [
         "@ledgerhq/devices",
         "@ledgerhq/errors",
@@ -285,8 +285,8 @@
         "usb"
       ]
     },
-    "@ledgerhq/hw-transport@6.31.12": {
-      "integrity": "sha512-FO5LRIXYC8ELtaohlO8qK0b3TfHUNBZ3+CXKPHiHj2jJwrxPf4s5kcgBYrmzuf1C/1vfrMOjzyty6OgrMIbU6Q==",
+    "@ledgerhq/hw-transport@6.31.13": {
+      "integrity": "sha512-MrJRDk74wY980ofiFPRpTHQBbRw1wDuKbdag1zqlO1xtJglymwwY03K2kvBNvkm1RTSCPUp/nAoNG+WThZuuew==",
       "dependencies": [
         "@ledgerhq/devices",
         "@ledgerhq/errors",
@@ -294,8 +294,8 @@
         "events"
       ]
     },
-    "@ledgerhq/live-env@2.18.0": {
-      "integrity": "sha512-wasAK0IPyyX4ZAU0FLTZUsRzxJfdHlewyhkbz3HryYKbNofuMRwIWyaZ2xhpXXjEdP6qHb9HzewAZevjSn7DLQ==",
+    "@ledgerhq/live-env@2.20.0": {
+      "integrity": "sha512-L4SO4mIA1t/qalWSUy4WU49Whb7VHCdMatfyeZQ//nO76NvhM0mJ8HEcq94BC1l79DziZfVKrrknzJgI1jvoJg==",
       "dependencies": [
         "rxjs",
         "utility-types"
@@ -304,8 +304,8 @@
     "@ledgerhq/logs@6.13.0": {
       "integrity": "sha512-4+qRW2Pc8V+btL0QEmdB2X+uyx0kOWMWE1/LWsq5sZy3Q5tpi4eItJS6mB0XL3wGW59RQ+8bchNQQ1OW/va8Og=="
     },
-    "@ledgerhq/types-live@6.86.0": {
-      "integrity": "sha512-uWnDroQC2qH36OjTttWiVFZ6CMnrCwr94XLFSmSKe/dKLnuFVUnB07xBW7gMi6AyX+P3w0cir+yi9xrxPC1k7w==",
+    "@ledgerhq/types-live@6.88.0": {
+      "integrity": "sha512-RkBLJl3ThwzZUlvrXd+hGk7VFTHtpG/WmTrVv/HA5hz9JxexTVg16p0B6FHg+FnC37oj+ZUAeJOMBiDsEVq8qA==",
       "dependencies": [
         "bignumber.js",
         "rxjs"
@@ -335,8 +335,8 @@
     "asynckit@0.4.0": {
       "integrity": "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
     },
-    "axios@1.11.0": {
-      "integrity": "sha512-1Lx3WLFQWm3ooKDYZD1eXmoGO9fxYQjrycfHFC8P0sCfQVXyROp0p9PFWBehewBOdCwHc+f/b8I0fMto5eSfwA==",
+    "axios@1.12.2": {
+      "integrity": "sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==",
       "dependencies": [
         "follow-redirects",
         "form-data",
@@ -631,8 +631,8 @@
     "napi-build-utils@2.0.0": {
       "integrity": "sha512-GEbrYkbfF7MoNaoh2iGG84Mnf/WZfB0GdGEsM8wz7Expx/LlWf5U8t9nvJKXSp3qr5IsEbK04cBGhol/KwOsWA=="
     },
-    "node-abi@3.78.0": {
-      "integrity": "sha512-E2wEyrgX/CqvicaQYU3Ze1PFGjc4QYPGsjUrlYkqAE0WjHEZwgOsGMPMzkMse4LjJbDmaEuDX3CM036j5K2DSQ==",
+    "node-abi@3.80.0": {
+      "integrity": "sha512-LyPuZJcI9HVwzXK1GPxWNzrr+vr8Hp/3UqlmWxxh8p54U1ZbclOqbSog9lWHaCX+dBaiGi6n/hIX+mKu74GmPA==",
       "dependencies": [
         "semver"
       ]
@@ -827,8 +827,8 @@
     "packageJson": {
       "dependencies": [
         "npm:@blackhan-software/wasm-miner@^1.0.15",
-        "npm:@ledgerhq/hw-app-eth@^6.46.0",
-        "npm:@ledgerhq/hw-transport-node-hid@^6.29.13",
+        "npm:@ledgerhq/hw-app-eth@^6.47.0",
+        "npm:@ledgerhq/hw-transport-node-hid@^6.29.14",
         "npm:decimal.js@^10.6.0",
         "npm:ethers@^6.15.0"
       ]
