@@ -19,3 +19,18 @@ systemctl restart banq-ri@APOW:supply:P003.service
 systemctl restart banq-ri@APOW:borrow:P003.service
 systemctl restart banq-ri@USDT:supply:P003.service
 systemctl restart banq-ri@USDT:borrow:P003.service
+
+systemctl restart banq-ri@XPOW:supply:P004.service
+systemctl restart banq-ri@XPOW:borrow:P004.service
+systemctl restart banq-ri@AVAX:supply:P004.service
+systemctl restart banq-ri@AVAX:borrow:P004.service
+
+systemctl restart banq-ri@XPOW:supply:P005.service
+systemctl restart banq-ri@XPOW:borrow:P005.service
+systemctl restart banq-ri@USDC:supply:P005.service
+systemctl restart banq-ri@USDC:borrow:P005.service
+
+systemctl restart banq-ri@XPOW:supply:P006.service
+systemctl restart banq-ri@XPOW:borrow:P006.service
+systemctl restart banq-ri@USDT:supply:P006.service
+systemctl restart banq-ri@USDT:borrow:P006.service
