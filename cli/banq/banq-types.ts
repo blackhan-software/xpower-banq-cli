@@ -1,0 +1,17 @@
+export type Command =
+  | "pass"
+  | "supply"
+  | "borrow"
+  | "settle"
+  | "redeem"
+  | "liquidate"
+  | "refresh"
+  | "retwap"
+  | "reindex"
+  | "health-of"
+  | "rates-of"
+  | "xpow-init"
+  | "xpow-mine"
+  | "xpow-mint"
+  | "apow-claim"
+  | "apow-claim-batch";
