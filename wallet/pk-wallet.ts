@@ -25,7 +25,9 @@ export async function wallet(
   ///
   /// construct signer-account
   ///
-  const provider = new ethers.JsonRpcProvider(url);
+  const provider = url.match(/wss?:\/\//i)
+    ? new ethers.WebSocketProvider(url)
+    : new ethers.JsonRpcProvider(url);
   const wallet = new ethers.Wallet(pk, provider);
   const account = await wallet.getAddress();
   assert(account, "missing signer-account");
