@@ -29,5 +29,5 @@
     "test": "deno test -A --env=./etc/banq/banq.env.testnet --env=.env.testnet --env=.env.testnet.local",
     "lint": "deno lint"
   },
-  "version": "0.0.0"
+  "version": "1.0.0"
 }
