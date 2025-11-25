@@ -43,5 +43,5 @@
   },
   "exports": "./cli/banq/banq-main.ts",
   "name": "@blackhan/xpower-banq-cli",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
