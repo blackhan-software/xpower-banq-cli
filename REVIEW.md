@@ -54,7 +54,17 @@ async function rhs_of(...): Promise<[bigint | null, bigint | null]> {
 
 Unlike `lhs_of()` which correctly distinguishes call exceptions from other errors, `rhs_of()` catches everything including network failures, type errors, etc. This asymmetry may be intentional for graceful degradation, but it's inconsistent and could mask real problems.
 
-### 4. Potential stack overflow in `largeRandom()` (`xpow-mine.ts:155-161`)
+### 4. Regex bug in `opt-at.ts:15`
+
+```typescript
+if (arg.match(/^all$$/i)) {
+```
+
+The double `$$` creates the regex `/^all$$/i` which matches `"all$"` (a literal dollar sign after "all") rather than just `"all"`. This means `--at=all` won't match, breaking the "all" keyword.
+
+**Fix**: Change to `/^all$/i` (single `$`).
+
+### 5. Potential stack overflow in `largeRandom()` (`xpow-mine.ts:155-161`)
 
 ```typescript
 function largeRandom(length: number): bigint {
@@ -145,6 +155,8 @@ The `args.rest` array is consumed destructively via `shift()` in both the dispat
 
 - **No input validation on contract addresses from env**: The `env/oracles.ts` module asserts addresses are non-zero but doesn't validate checksum or format. A malformed address could cause silent failures.
 
+- **Global JSON.parse mutation** (`function/json.ts`): The module monkey-patches `JSON.parse` globally at import time to handle BigInt serialization (`"123n"` strings). This affects all code in the process, could conflict with third-party libraries, and is imported as a side-effect module. A dedicated `parseBigIntJson()` function would be safer.
+
 ---
 
 ## Testing
@@ -210,6 +222,7 @@ The dependency set is minimal and appropriate. No unnecessary packages.
 | Priority | Issue | Location |
 |---|---|---|
 | **High** | Add missing `throw e` in catch blocks | `refresh-oracle.ts:66`, `retwap-oracle.ts:212` |
+| **High** | Fix regex double `$$` in `opt-at.ts` | `arg/opt-at.ts:15` |
 | **High** | Convert `largeRandom()` recursion to loop | `xpow-mine.ts:155-161` |
 | **Medium** | Replace if-else dispatch with command map | `banq.ts:34-104` |
 | **Medium** | Unify command registry (dispatch, help, completions) | `banq.ts`, `banq-main.ts`, `banq-completion.bash` |
@@ -219,3 +232,4 @@ The dependency set is minimal and appropriate. No unnecessary packages.
 | **Low** | Tighten `Result` type per command | `cmd/types.ts` |
 | **Low** | Add graceful shutdown for `--watch` mode | `retwap-oracle.ts:169` |
 | **Low** | Make `rhs_of()` error handling consistent with `lhs_of()` | `retwap-oracle.ts:234-243` |
+| **Low** | Replace global `JSON.parse` monkey-patch with explicit function | `function/json.ts` |
