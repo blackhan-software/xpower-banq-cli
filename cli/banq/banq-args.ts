@@ -1,0 +1,133 @@
+import { hex2bigint, suffix_n, underscore } from "../../arg/parser.ts";
+import type { Mode, RunVersion } from "../../arg/types.ts";
+import type { Spinner } from "../../etc/cli-spinner.ts";
+import { parseArgs } from "../../function/parse-args.ts";
+
+const CLI_OPTIONS = {
+  default: {
+    "acma": undefined as bigint | string | undefined,
+    "address": undefined as bigint | string | undefined,
+    "addresses": false,
+    "asc": false,
+    "at": undefined as number | string | undefined,
+    "broadcast": false,
+    "contract_run": undefined as RunVersion | undefined,
+    "digits": undefined as number | undefined,
+    "event": undefined as string | undefined,
+    "from_block": undefined as number | undefined,
+    "gas_limit": undefined as bigint | number | string | undefined,
+    "hd_path": undefined as string | undefined,
+    "help": false,
+    "json": false,
+    "ledger": false,
+    "limit": undefined as number | undefined,
+    "max_blocks": undefined as number | undefined,
+    "max_fee_per_gas": undefined as bigint | number | string | undefined,
+    "max_priority_fee_per_gas": undefined as
+      | number
+      | bigint
+      | string
+      | undefined,
+    "mode": undefined as Mode | undefined,
+    "model": false,
+    "no_cache": false,
+    "no_progress": false,
+    "nft_id": undefined as number | string | undefined,
+    "nonce_length": undefined as number | undefined,
+    "oracle": undefined as bigint | string | undefined,
+    "page": undefined as number | string | undefined,
+    "page_size": undefined as number | string | undefined,
+    "page_step": undefined as number | string | undefined,
+    "hist_size": undefined as number | string | undefined,
+    "percent": undefined as number | undefined,
+    "percent_min": undefined as number | undefined,
+    "percent_max": undefined as number | undefined,
+    "plot": undefined as boolean | string | undefined,
+    "pool": undefined as bigint | string | undefined,
+    "pow_level": undefined as number | undefined,
+    "private_key": undefined as string | undefined,
+    "provider_url": undefined as string | undefined,
+    "role": undefined as string | undefined,
+    "spinner": undefined as Spinner | undefined,
+    "to_block": undefined as number | undefined,
+    "timestamps": false,
+    "to": undefined as bigint | string | undefined,
+    "timeout": undefined as number | undefined,
+    "tx": false,
+    "watch": undefined as string | undefined,
+  },
+  boolean: [
+    "addresses",
+    "asc",
+    "list_commands",
+    "list_options",
+    "broadcast",
+    "version",
+    "help",
+    "json",
+    "ledger",
+    "model",
+    "no_cache",
+    "no_progress",
+    "timestamps",
+    "tx",
+  ],
+  string: [
+    "acma",
+    "addr",
+    "event",
+    "hd_path",
+    "oracle",
+    "private_key",
+    "provider_url",
+    "role",
+    "to",
+    "watch",
+  ],
+  alias: {
+    "addresses": "a",
+    "at": "@",
+    "broadcast": "Y",
+    "contract_run": "V",
+    "digits": "d",
+    "event": "e",
+    "gas_limit": "G",
+    "hd_path": "H",
+    "help": "h",
+    "hist_size": "Z",
+    "json": "j",
+    "ledger": "l",
+    "limit": "n",
+    "max_fee_per_gas": "f",
+    "max_priority_fee_per_gas": "F",
+    "mode": "M",
+    "model": "m",
+    "no_progress": "P",
+    "oracle": "o",
+    "page": "#",
+    "page_size": "z",
+    "page_step": "s",
+    "percent": "%",
+    "percent_min": "L",
+    "percent_max": "R",
+    "plot": "g",
+    "pool": "p",
+    "private_key": "k",
+    "role": "r",
+    "provider_url": "u",
+    "timeout": "T",
+    "version": "v",
+    "watch": "w",
+  },
+};
+
+/**
+ * Parse CLI arguments: hex-literals are treated as bigints.
+ */
+export function parse(strings: string[]) {
+  const { _, ...argv } = parseArgs(suffix_n(strings), CLI_OPTIONS);
+  return Object.assign(underscore(argv, CLI_OPTIONS.alias), {
+    rest: hex2bigint(_),
+  });
+}
+export type BanqArgs = ReturnType<typeof parse>;

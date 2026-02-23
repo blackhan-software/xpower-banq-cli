@@ -1,0 +1,58 @@
+import { ethers, parseUnits } from "ethers";
+import TOKEN_ABI from "./abi/erc20-abi.json" with { type: "json" };
+import { pool_abi } from "./abi/abis.ts";
+
+import { arg_amount } from "../../arg/arg-amount.ts";
+import { arg_token } from "../../arg/arg-token.ts";
+import { opt_contract_run } from "../../arg/opt-contract-run.ts";
+import { opt_pool } from "../../arg/opt-pool.ts";
+import { opt_gas } from "../../arg/opt-gas.ts";
+
+import type { BanqArgs } from "../../cli/banq/banq.ts";
+import { addressOf as x } from "../../function/address.ts";
+import { wallet } from "../../wallet/index.ts";
+import { type CommandResult, DRY_RUN } from "../types.ts";
+
+import { approve } from "./tool/approve.ts";
+import { call } from "./tool/call.ts";
+import { list_options } from "./tool/completions.ts";
+
+/**
+ * settle $AMOUNT $TOKEN [--options]
+ */
+export async function command(args: BanqArgs): Promise<CommandResult> {
+  if (args.list_options) {
+    list_options(["APOW", "XPOW"], ["--pool", "-p"]);
+  }
+  const amount = arg_amount(args.rest);
+  const { address: token, symbol } = arg_token(args, args.rest);
+  const { address: pool } = opt_pool(args);
+  if (!args.broadcast) {
+    return [[amount, symbol], [DRY_RUN]];
+  }
+  const { contract_run: run } = opt_contract_run(args);
+  const { signer, account } = await wallet(args);
+  ///
+  /// approve token allowance
+  ///
+  const TOKEN = new ethers.Contract(x(token), TOKEN_ABI, signer);
+  const value = parseUnits(`${amount}`, await TOKEN.decimals());
+  const reason = await approve(
+    TOKEN,
+    x(pool),
+    value,
+    account,
+    opt_gas(args),
+  );
+  if (reason !== null) {
+    return [[amount, symbol], [reason]];
+  }
+  ///
+  /// settle token amount
+  ///
+  const POOL = new ethers.Contract(x(pool), pool_abi(run), signer);
+  return await call(
+    () => POOL.settle(x(token), value, opt_gas(args)),
+    [amount, symbol],
+  );
+}
