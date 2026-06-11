@@ -1,0 +1,120 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "roleId", "type": "uint64" },
+      { "indexed": true, "name": "account", "type": "address" },
+      { "indexed": false, "name": "delay", "type": "uint32" },
+      { "indexed": false, "name": "since", "type": "uint48" },
+      { "indexed": false, "name": "newMember", "type": "bool" }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "roleId", "type": "uint64" },
+      { "indexed": true, "name": "account", "type": "address" }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "roleId", "type": "uint64" },
+      { "indexed": false, "name": "label", "type": "string" }
+    ],
+    "name": "RoleLabel",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "roleId", "type": "uint64" },
+      { "indexed": true, "name": "admin", "type": "uint64" }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "roleId", "type": "uint64" },
+      { "indexed": true, "name": "guardian", "type": "uint64" }
+    ],
+    "name": "RoleGuardianChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "roleId", "type": "uint64" },
+      { "indexed": false, "name": "delay", "type": "uint32" },
+      { "indexed": false, "name": "since", "type": "uint48" }
+    ],
+    "name": "RoleGrantDelayChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "target", "type": "address" },
+      { "indexed": false, "name": "selector", "type": "bytes4" },
+      { "indexed": true, "name": "roleId", "type": "uint64" }
+    ],
+    "name": "TargetFunctionRoleUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "target", "type": "address" },
+      { "indexed": false, "name": "delay", "type": "uint32" },
+      { "indexed": false, "name": "since", "type": "uint48" }
+    ],
+    "name": "TargetAdminDelayUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "target", "type": "address" },
+      { "indexed": false, "name": "closed", "type": "bool" }
+    ],
+    "name": "TargetClosed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "operationId", "type": "bytes32" },
+      { "indexed": true, "name": "nonce", "type": "uint32" },
+      { "indexed": false, "name": "schedule", "type": "uint48" },
+      { "indexed": true, "name": "caller", "type": "address" },
+      { "indexed": false, "name": "target", "type": "address" },
+      { "indexed": false, "name": "data", "type": "bytes" }
+    ],
+    "name": "OperationScheduled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "operationId", "type": "bytes32" },
+      { "indexed": true, "name": "nonce", "type": "uint32" }
+    ],
+    "name": "OperationExecuted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "operationId", "type": "bytes32" },
+      { "indexed": true, "name": "nonce", "type": "uint32" }
+    ],
+    "name": "OperationCanceled",
+    "type": "event"
+  }
+]
