@@ -1,9 +1,15 @@
 # Avalanche Mainnet — banq config
 provider:
-  urls: ["https://api.avax.network/ext/bc/C/rpc", "https://avalanche-c-chain-rpc.publicnode.com", "https://avalanche.drpc.org"]
+  urls: [
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://avalanche-c-chain-rpc.publicnode.com",
+    "https://avalanche.drpc.org",
+  ]
 contract_run: v10c
 contracts:
   caps:
+    P007:
+      v11a: "0x1195d6dD61c6D582897A585cb281fA32897CA180"
     v10b: "0x0000000000000000000000000000000000000000"
     v10c: "0x001e2920a1bd0c4f139deE06d50Ac6AA40f2Af98"
     v11a: "0xD7e571faa68653D01a6282bB25F03B360eDf57B9"
@@ -36,6 +42,8 @@ contracts:
       v10b: "0x2c463dBeF8Fca375676F080e00946d7fcfaeb347"
       v10c: "0x22Ee1110F8019da2717Ed89c06343396c38EE50B"
       v11a: "0x9b937C1EB4773D79B79E08AAb976cbe3206f0018"
+    P007:
+      v11a: "0x0d827aB910616356B2e47C4793eb70894dfe4Ce1"
 contacts:
   ALTO: "0x4B25D36bCC2c20473D061CD41937737A80673e94"
   BOSS: "0x5630140E6eCB6242615E9E628095E1A4Ce3903c3"
