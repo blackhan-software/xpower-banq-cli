@@ -1,0 +1,62 @@
+# Avalanche Mainnet — banq config
+provider:
+  urls: [
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://avalanche-c-chain-rpc.publicnode.com",
+    "https://avalanche-mainnet.gateway.tenderly.co",
+    "https://rpc.sentio.xyz/avalanche",
+    "https://avalanche.publicnode.com",
+    "https://avalanche-rpc.publicnode.com",
+    "https://avalanche-c-chain.publicnode.com",
+    "https://avalanche.gateway.tenderly.co",
+  ]
+contract_run: v11b
+contracts:
+  caps:
+    v10c: "0x001e2920a1bd0c4f139deE06d50Ac6AA40f2Af98"
+    v11a: "0xdcb36913d60c498f5c76721af50D34f793F03a39"
+    v11b: "0x682Af53E936c78f9A976176d822482952f7D4c86"
+    P007:
+      v10c: "0x082fBae758cf12fE8e0d5905B193a1F3F469A3f2"
+      v11a: "0x082fBae758cf12fE8e0d5905B193a1F3F469A3f2"
+      v11b: "0x082fBae758cf12fE8e0d5905B193a1F3F469A3f2"
+  pools:
+    P000:
+      v10c: "0x7B6541C8Ce141D86D12fBd9bEBe80144463f9fd2"
+      v11a: "0xd068c58d9EB3CD378e5abC3ceBfa102d44481931"
+      v11b: "0xF800FD1fCF74a5aB583A32E336dd126d360712dB"
+    P001:
+      v10c: "0xECa8499e50Fc3bB93744F9FE206c71329db38b91"
+      v11a: "0x30d6F7cb89EA9208CC07EB1028e7E663d8252B09"
+      v11b: "0xbFF714538E6eeD640fb2b33944154679F3489F4A"
+    P002:
+      v10c: "0xDe1e0066A04f924Ac583Fc751ad44Dd0600D7C68"
+      v11a: "0xD42C82B2Bd328b117a760d8553Cf3F2D00C707D7"
+      v11b: "0xab07DD4c8E6c0E8330BdceF422F0c6D0Cdf49c31"
+    P003:
+      v10c: "0x33C5CAcf1de054b061aD6100c9c94656a0EB01e4"
+      v11a: "0x291b3C2BFB58523a5d8a14a278cB6F79dF315670"
+      v11b: "0x3E50e681BC2f9d348D21C58e82ADb671f713a6B3"
+    P004:
+      v10c: "0x09058011feFa062311934F2b694dE530984590Cf"
+      v11a: "0xde22e787d9f03D81080163B35c181DB562186153"
+      v11b: "0x73380d71F590083Fc648249DF175024940F14A5A"
+    P005:
+      v10c: "0x22761e590BB9BCd6577f3E6b5Cc83ec815D1Dc9F"
+      v11a: "0xe4258AF9aEF39cA3Dee36f4f2E81f55142E109f9"
+      v11b: "0x0f01Bbc86B68e56a13a43Ef6af73DB3d1494eF09"
+    P006:
+      v10c: "0x22Ee1110F8019da2717Ed89c06343396c38EE50B"
+      v11a: "0xf3bf6609b046E6D23713160890c0cC151bcadB02"
+      v11b: "0xA42F3d7b3676AcAfdF4417bD3923000725B9B241"
+    P007:
+      v10c: "0x58d6074e928a60f47db14d68FCE92018aa9B7Dd2"
+      v11a: "0x58d6074e928a60f47db14d68FCE92018aa9B7Dd2"
+      v11b: "0x58d6074e928a60f47db14d68FCE92018aa9B7Dd2"
+contacts:
+  ALTO: "0x4B25D36bCC2c20473D061CD41937737A80673e94"
+  BOSS: "0x5630140E6eCB6242615E9E628095E1A4Ce3903c3"
+  LIQU: "0x6a623c5958B7Ce822B4EE7F21B83021eF7581cB4"
+  RISK: "0x31f48f25A4eA352F61EE1D6aBf25A8b2e33a05Bd"
+  TWAP: "0x31e69c8c3EEDda1B6972CDf18a2DCf1CE6084ead"
+  ZEUS: "0xA0cE71b4ed736F02c269498f870DCbb0C8eC257c"
