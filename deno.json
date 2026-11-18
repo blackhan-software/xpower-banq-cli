@@ -52,5 +52,5 @@
   "exports": "./cli/banq/banq-main.ts",
   "name": "@blackhan/xpower-banq-cli",
   "minimumDependencyAge": "60",
-  "version": "0.0.0"
+  "version": "1.0.0"
 }
